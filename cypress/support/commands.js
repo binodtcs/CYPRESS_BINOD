@@ -20,6 +20,21 @@ Cypress.Commands.add('upload_validate',(picfile)=>{
     cy.get('#validate_cv').contains(picfile)
 })
 //
+Cypress.Commands.add('Open_page_screenshot',(inputfile)=>{
+    cy.fixture(inputfile).then(data =>{
+        cy.visit(data.url)
+        })
+        cy.screenshot({overwrite: true}) 
+})
+
+Cypress.Commands.add('choose_language',(inputfile)=>{
+    cy.fixture(inputfile).then(data=>{
+        cy.get('select[id="select_lang"]').select(data.language)
+        cy.get('#select_lang_validate').contains(data.language,{matchCase: false})   
+    })
+
+})
+
 // Multiple file upload & validate
 
 //

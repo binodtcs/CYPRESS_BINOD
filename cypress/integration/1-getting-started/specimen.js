@@ -1,9 +1,8 @@
 const dummy = require('dummynator');
 const fullname = dummy.person.firstName() + ' ' + dummy.person.lastName()
 describe('My first test case', function(){
-    it('Open the page playground',function(){
-        cy.visit('https://dineshvelhal.github.io/testautomation-playground/forms.html')
-        cy.screenshot() 
+    it('Open the page & take screenshot',function(){
+        cy.Open_page_screenshot('testdata')
                      
     })
 
@@ -21,4 +20,11 @@ describe('My first test case', function(){
         cy.upload_validate('Paw1.PNG')
     })
 
+})
+
+describe('Choose the language',()=>{
+    it('language selected', ()=>{
+        cy.choose_language('testdata')  
+         
+    })
 })
