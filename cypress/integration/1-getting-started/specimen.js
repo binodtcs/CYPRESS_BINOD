@@ -4,6 +4,7 @@ describe('My first test case', function(){
     it('Open the page playground',function(){
         cy.visit('https://dineshvelhal.github.io/testautomation-playground/forms.html')
         cy.screenshot()
+        
                      
     })
 
