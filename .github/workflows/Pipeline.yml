@@ -1,6 +1,6 @@
 name: E2E on Chrome
-on: 
-  workflow_dispatch:
+on: push
+  # workflow_dispatch:
 jobs:
   cypress-run:
     runs-on: ubuntu-20.04
