@@ -12,10 +12,19 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          browser: chrome
-          record: true
-          group: Tests on Chrome
-          env: lastName=Smith
-        env:
-          CYPRESS_firstName: Joe
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+           browser: chrome
+           build: npm run build
+           start: npm start
+      - name: Cypress Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: screenshots-in-chrome
+          path: cypress/screenshots
+      #    browser: chrome
+      #    record: true
+      #    group: Tests on Chrome
+      #    env: lastName=Smith
+      #  env:
+      #    CYPRESS_firstName: Joe
+      #    CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+            
