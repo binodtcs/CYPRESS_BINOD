@@ -1,5 +1,6 @@
 {
     "env": {
         "Notes": ""
-    }
+    },
+    "baseUrl": "https://dineshvelhal.github.io/testautomation-playground"
 }
