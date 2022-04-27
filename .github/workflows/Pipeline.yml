@@ -16,6 +16,8 @@ jobs:
            env: 
               Notes=${{ secrets.SECRETS1 }}
            spec: cypress/integration/1-getting-started/specimen.js
+        env:
+          Notes: ${{ secrets.SECRETS2 }}
       - name: Cypress Artifacts
         uses: actions/upload-artifact@v2
         with:
