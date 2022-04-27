@@ -12,7 +12,8 @@ describe('My first test case', function(){
     
     it('Enter other details',function(){
         cy.get('#check_python').check()
-        cy.get('#notes').type(fullname)
+ //    cy.get('#notes').type(fullname)
+        cy.get('#notes').type(Cypress.env('Notes'))
         cy.get('#upload_cv').click()
     })
 

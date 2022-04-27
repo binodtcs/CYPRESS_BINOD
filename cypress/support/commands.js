@@ -30,7 +30,8 @@ Cypress.Commands.add('Open_page_screenshot',(inputfile)=>{
 Cypress.Commands.add('choose_language',(inputfile)=>{
     cy.fixture(inputfile).then(data=>{
         cy.get('select[id="select_lang"]').select(data.language)
-        cy.get('#select_lang_validate').contains(data.language,{matchCase: false})   
+        cy.get('#select_lang_validate').contains(data.language,{matchCase: false}) 
+        cy.screenshot({overwrite: true})   
     })
 
 })

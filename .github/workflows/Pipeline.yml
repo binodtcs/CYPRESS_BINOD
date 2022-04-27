@@ -13,6 +13,8 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
            browser: chrome
+           env: 
+              Notes=${{ secrets.SECRETS1 }}
            spec: cypress/integration/1-getting-started/specimen.js
       - name: Cypress Artifacts
         uses: actions/upload-artifact@v2
