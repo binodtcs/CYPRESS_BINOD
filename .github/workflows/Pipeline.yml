@@ -1,11 +1,11 @@
-name: E2E on Chrome
+name: E2E on Stage Chrome
 on: push
   # workflow_dispatch:
 jobs:
   cypress-run:
     runs-on: ubuntu-20.04
     # let's make sure our tests pass on Chrome browser
-    name: E2E on Chrome
+    name: E2E on Stage Chrome
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -13,11 +13,12 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
            browser: chrome
-       #    env: 
+           env: Environment= stage     
         #      Notes=${{ secrets.SECRETS1 }}
+           config-file: stageenv-config.json
            spec: cypress/integration/1-getting-started/specimen.js
         env:
-          CYPRESS_Notes: ${{ secrets.SECRETS2 }}
+          CYPRESS_Notes: ${{ secrets.SECRETS1 }}
       - name: Cypress Artifacts
         uses: actions/upload-artifact@v2
         with:
