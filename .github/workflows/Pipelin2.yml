@@ -1,0 +1,33 @@
+name: E2E on Chrome
+on: push
+  # workflow_dispatch:
+jobs:
+  cypress-run:
+    runs-on: ubuntu-20.04
+    # let's make sure our tests pass on Chrome browser
+    name: E2E on Chrome
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+           browser: chrome
+       #    env: 
+        #      Notes=${{ secrets.SECRETS1 }}
+           spec: cypress/integration/1-getting-started/specimen.js
+        env:
+          CYPRESS_Notes: ${{ secrets.SECRETS2 }}
+      - name: Cypress Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: screenshots-in-chrome
+          path: cypress/screenshots
+      #    browser: chrome
+      #    record: true
+      #    group: Tests on Chrome
+      #    env: lastName=Smith
+      #  env:
+      #    CYPRESS_firstName: Joe
+      #    CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+            
