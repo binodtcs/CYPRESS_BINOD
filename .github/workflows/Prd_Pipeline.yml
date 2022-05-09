@@ -1,6 +1,10 @@
 name: E2E on Prd Chrome
-on: push
+#on: push
   # workflow_dispatch:
+on: 
+  workflow_run: ["E2E on Stage Chrome"]
+  types:
+    - competed
 jobs:
   cypress-run:
     runs-on: ubuntu-20.04
