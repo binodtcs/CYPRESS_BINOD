@@ -18,7 +18,7 @@ jobs:
         uses: cypress-io/github-action@v2
         with:
            browser: chrome
-           env: Environment = prd
+           env: Environment= prd
         #      Notes=${{ secrets.SECRETS1 }}
            config-file: prodenv-config.json
            spec: cypress/integration/1-getting-started/specimen.js
