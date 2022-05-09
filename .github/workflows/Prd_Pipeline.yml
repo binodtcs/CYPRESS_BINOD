@@ -5,7 +5,7 @@ on:
   workflow_run:
     workflows: ["E2E on Stage Chrome"]
     types:
-      - competed
+      - completed
 jobs:
   cypress-run:
     runs-on: ubuntu-20.04
