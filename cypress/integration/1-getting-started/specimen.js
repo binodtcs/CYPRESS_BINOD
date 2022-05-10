@@ -3,9 +3,11 @@ const fullname = dummy.person.firstName() + ' ' + dummy.person.lastName()
 
 describe('My first test case', function(){
     it('Open the page & take screenshot',function(){
+
         
         cy.Open_page_screenshot('testdata')
         cy.screenshots_datetime_format('Initial_screenshot')
+
                      
     })
 
@@ -28,8 +30,10 @@ describe('My first test case', function(){
 
 describe('Choose the language',()=>{
     it('language selected', ()=>{
+
         cy.choose_language('testdata') 
         cy.screenshots_datetime_format('Choose_lang') 
+
          
     })
 })

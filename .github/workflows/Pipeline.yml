@@ -1,3 +1,4 @@
+
 name: E2E on Stage Chrome
 on: push
   # workflow_dispatch:
@@ -5,13 +6,16 @@ jobs:
   cypress-run:
     runs-on: ubuntu-20.04
     # let's make sure our tests pass on Chrome browser
+
     name: E2E on Stage Chrome
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
+
            browser: chrome
            env: Environment= stage     
         #      Notes=${{ secrets.SECRETS1 }}
@@ -32,3 +36,5 @@ jobs:
       #    CYPRESS_firstName: Joe
       #    CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
             
+
+        
