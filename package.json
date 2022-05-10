@@ -4,7 +4,9 @@
   "description": "Test",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test_e2e": "./node_modules/.bin/cypress-tags run -e TAGS='@feature-tag",
+    "build": "echo GO BINOD!"
   },
   "author": "",
   "license": "ISC",

@@ -1,28 +1,30 @@
-
-name: E2E on Stage Chrome
-on: push
+name: E2E on Prd Chrome
+#on: push
   # workflow_dispatch:
+on: 
+  workflow_run:
+    workflows: ["E2E on Stage Chrome"]
+    types:
+      - completed
 jobs:
   cypress-run:
     runs-on: ubuntu-20.04
     # let's make sure our tests pass on Chrome browser
-
-    name: E2E on Stage Chrome
-
+    name: E2E on Prd Chrome
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-
            browser: chrome
-           env: Environment= stage     
+           env: Environment= prd
         #      Notes=${{ secrets.SECRETS1 }}
-           config-file: stageenv-config.json
+           config-file: prodenv-config.json
            spec: cypress/integration/1-getting-started/specimen.js
+           
         env:
-          CYPRESS_Notes: ${{ secrets.SECRETS1 }}
+          CYPRESS_Notes: ${{ secrets.SECRETS2 }}
       - name: Cypress Artifacts
         uses: actions/upload-artifact@v2
         with:
@@ -36,5 +38,3 @@ jobs:
       #    CYPRESS_firstName: Joe
       #    CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
             
-
-        

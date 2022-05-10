@@ -1,0 +1,4 @@
+{
+    "extends": "./cypress.json",
+    "baseUrl": "https://dineshvelhal.github.io/testautomation-playground"
+}

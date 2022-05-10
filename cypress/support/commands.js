@@ -24,16 +24,33 @@ Cypress.Commands.add('Open_page_screenshot',(inputfile)=>{
     cy.fixture(inputfile).then(data =>{
         cy.visit(data.url)
         })
-        cy.screenshot({overwrite: true}) 
+
+    //    cy.screenshot({overwrite: true}) 
+
 })
 
 Cypress.Commands.add('choose_language',(inputfile)=>{
     cy.fixture(inputfile).then(data=>{
         cy.get('select[id="select_lang"]').select(data.language)
-        cy.get('#select_lang_validate').contains(data.language,{matchCase: false})   
+        cy.get('#select_lang_validate').contains(data.language,{matchCase: false}) 
+     //   cy.screenshot({overwrite: true})   
+
     })
 
 })
+
+
+Cypress.Commands.add('screenshots_datetime_format',(NameofFile)=>{
+    const d = new Date();
+    let textDate = d.toLocaleDateString("es-cl");
+    let textTime = d.toLocaleTimeString();
+    let timestamp = textDate.concat("_",textTime);
+    
+
+    const screenshot_file_name=NameofFile +'_'+ Cypress.env('Environment') + '_' + timestamp
+    cy.screenshot(screenshot_file_name,{overwrite: true})
+})
+
 
 // Multiple file upload & validate
 
